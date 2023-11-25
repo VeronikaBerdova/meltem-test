@@ -1,0 +1,27 @@
+$default: #333333;
+$accent: #859ba6;
+$bg: #ffffff;
+
+%rob-300 {
+  font-family: 'Roboto-Light', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+%rob-400 {
+  font-family: 'Roboto-Regular', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+%rob-500 {
+  font-family: 'Roboto-Medium', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+%rob-700 {
+  font-family: 'Roboto-Bold', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}

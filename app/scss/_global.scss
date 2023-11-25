@@ -1,0 +1,560 @@
+body {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(
+    0deg,
+    rgba(212, 227, 236, 0.3) -2.6%,
+    rgba(247, 249, 251, 0.3) 100%
+  );
+  color: $default;
+  @extend %rob-300;
+  font-size: 20px;
+  line-height: 1.3;
+
+  @include mq('tablet') {
+    font-size: 18px;
+  }
+
+  @include mq('tablet2') {
+    font-size: 15px;
+  }
+
+  @include mq('phone') {
+    font-size: 13px;
+  }
+
+  &.filling {
+    overflow: hidden;
+
+    &::before {
+      position: absolute;
+      content: '';
+      inset: 0;
+      background: rgba(51, 51, 51, 0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    .header {
+      z-index: -1;
+    }
+  }
+}
+
+.lock {
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  &.position {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    @include mq('phone') {
+      left: 0;
+    }
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.logo {
+  position: relative;
+  z-index: 999;
+
+  @include mq('phone') {
+    max-width: 91px;
+  }
+}
+
+.popup-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+
+  @include mq('phone') {
+    font-size: 24px;
+  }
+}
+
+.popup-text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  @include mq('phone') {
+    font-size: 13px;
+  }
+}
+
+.main-menu {
+  display: flex;
+
+  @include mq('tablet-2') {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 30px;
+
+      @include mq('tablet-2') {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+
+    @include mq('tablet-2') {
+      padding: 10px;
+    }
+  }
+}
+
+.contact-tell {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.16px;
+  white-space: nowrap;
+
+  @include mq('tablet-2') {
+    font-size: 18px;
+  }
+}
+
+.switcher-lang {
+  display: flex;
+
+  &__btn {
+    border-radius: 3px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+
+    @include mq('phone') {
+      width: 25px;
+      height: 25px;
+      font-size: 10px;
+    }
+
+    &--ua {
+      background-color: $accent;
+      color: $bg;
+    }
+
+    &--ru {
+      background-color: transparent;
+      color: $accent;
+    }
+  }
+}
+
+.btn {
+  display: block;
+  padding: 13px;
+  width: 140px;
+  height: fit-content;
+  border-radius: 5px;
+  border: 2px solid $accent;
+  color: $accent;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+
+  @include mq('tablet-2') {
+    font-size: 15px;
+  }
+
+  @include mq('phone') {
+    width: 100px;
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+.btn-accent {
+  border-color: $accent;
+  background-color: $accent;
+  color: $bg;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.24px;
+
+  @include mq('tablet') {
+    font-size: 20px;
+  }
+
+  @include mq('tablet-2') {
+    font-size: 17px;
+  }
+
+  @include mq('phone') {
+    font-size: 14px;
+  }
+}
+
+.burger-menu {
+  display: none;
+  position: relative;
+  z-index: 999;
+  width: 30px;
+  height: 30px;
+
+  @include mq('tablet-2') {
+    display: block;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    right: 0;
+    width: 30px;
+    height: 3px;
+    border-radius: 32px;
+    background-color: $accent;
+    transition: transform 0.3s;
+  }
+
+  &:before {
+    transform: translateY(6px);
+  }
+
+  &:after {
+    transform: translateY(-6px);
+  }
+
+  &.burger-menu--active {
+    &:before {
+      transform: translateY(0) rotate(45deg);
+    }
+
+    &:after {
+      transform: translateY(0) rotate(-45deg);
+    }
+  }
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+
+  @include mq('tablet-2') {
+    display: block;
+  }
+
+  &__inner {
+    padding: 120px 0 40px;
+    background-color: $bg;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__main-menu {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  &__contact-tell {
+    margin-bottom: 70px;
+  }
+
+  &.mobile-menu--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.cookie-pop {
+  max-width: 440px;
+  width: 100%;
+  padding: 20px 30px;
+  border-radius: 5px;
+  background-color: $bg;
+
+  @include mq('phone') {
+    max-width: 100%;
+    padding: 15px 20px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__text {
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: 400;
+
+    @include mq('phone') {
+      font-size: 12px;
+    }
+  }
+
+  &__link {
+    color: $accent;
+  }
+
+  &__agree {
+    width: 100px;
+  }
+}
+
+.modal-popup {
+  position: relative;
+  display: none;
+  z-index: 999;
+  padding: 60px;
+  width: 482px;
+  height: 476px;
+  border-radius: 5px;
+  background-color: $bg;
+
+  @include mq('phone') {
+    width: 100%;
+    padding: 15px;
+    height: 96vh;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__cross-menu {
+    right: 30px;
+    top: 30px;
+
+    @include mq('phone') {
+      right: 15px;
+      top: 15px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include mq('phone') {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 40px;
+
+    @include mq('phone') {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__input {
+    margin-bottom: 15px;
+    padding: 11px 20px;
+    border-radius: 5px;
+    border: 1px solid $default;
+
+    @include mq('phone') {
+      padding: 9px 15px;
+      margin-bottom: 10px;
+    }
+
+    input {
+      border: none;
+      width: 100%;
+
+      &::placeholder {
+        color: $default;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+
+        @include mq('phone') {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  &__input--tell.invalid-input {
+    border-color: red;
+
+    .modal-popup__tell {
+      color: red;
+    }
+  }
+
+  &__btn {
+    margin-bottom: 15px;
+    width: 100%;
+
+    @include mq('phone') {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__disclaimer {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    @include mq('phone') {
+      font-size: 10px;
+    }
+  }
+
+  &__link {
+    text-decoration: underline;
+  }
+
+  &.modal-popup-position {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+
+    @include mq('phone') {
+      font-size: 10px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.cross-menu {
+  position: absolute;
+  z-index: 999;
+  width: 30px;
+  height: 30px;
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    right: 0;
+    width: 30px;
+    height: 3px;
+    border-radius: 32px;
+    background-color: $accent;
+    transition: transform 0.3s;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.thank-block {
+  display: none;
+  width: 378px;
+  height: 378px;
+  padding: 60px;
+  background-color: $bg;
+
+  @include mq('phone') {
+    padding: 40px;
+    width: 209px;
+    height: 257px;
+  }
+
+  &.thank-block-position {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+
+    @include mq('phone') {
+      font-size: 10px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      transform: translate(0, 0);
+    }
+  }
+
+  &__inner {
+    max-width: 220px;
+    width: 100%;
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 20px;
+    padding-top: 110px;
+
+    @include mq('phone') {
+      margin-bottom: 15px;
+      padding-top: 60px;
+    }
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      content: '';
+      width: 67px;
+      height: 67px;
+      background-image: url('../images/done-icon.svg');
+      background-repeat: no-repeat;
+      background-position: center, center;
+      background-size: cover;
+
+      @include mq('phone') {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}

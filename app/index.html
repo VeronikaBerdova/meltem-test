@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meltem - вентеляційне обладнання</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+
+        <nav class="header__nav">
+          <a class="logo" href="#">
+            <img src="images/meltem-logo.svg" alt="логотип компанії Meltem">
+          </a>
+
+          <ul class="header__main-menu main-menu">
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">Компанія</a>
+            </li>
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">Продукція</a>
+            </li>
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">Статті</a>
+            </li>
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">Рішення</a>
+            </li>
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">Контакти</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header__contacts">
+          <a class="header__contact-tell contact-tell" href="tell:0800000000">0 (800) 00-00-00</a>
+          <button class="header__contacts-btn btn" type="button">Зв’язатись</button>
+        </div>
+
+        <ul class="header__switcher-lang switcher-lang">
+          <li class="switcher-lang__btn switcher-lang__btn--ua">
+            <a href="#">UA</a>
+          </li>
+          <li class="switcher-lang__btn switcher-lang__btn--ru">
+            <a href="#">RU</a>
+          </li>
+        </ul>
+
+        <button class="header__burger-menu burger-menu" onclick="toggleBurgerMenu()"></button>
+
+        <div class="mobile-menu">
+
+          <div class="mobile-menu__inner">
+            <ul class="mobile-menu__main-menu main-menu">
+              <li class="main-menu__item">
+                <a class="main-menu__link" href="#">Компанія</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link" href="#">Продукція</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link" href="#">Статті</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link" href="#">Рішення</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link" href="#">Контакти</a>
+              </li>
+            </ul>
+
+            <a class="mobile-menu__contact-tell contact-tell" href="tell:0800000000">0 (800) 00-00-00</a>
+
+            <ul class="mobile-menu__switcher-lang switcher-lang">
+              <li class="switcher-lang__btn switcher-lang__btn--ua">
+                <a href="#">UA</a>
+              </li>
+              <li class="switcher-lang__btn switcher-lang__btn--ru">
+                <a href="#">RU</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <h1 class="sr-only"></h1>
+            <span class="hero__heading">Meltem</span>
+            <div class="hero__text">
+              <p>
+                Meltem – це гарантовано якісне вентиляційне обладнання
+                від німецького заводу.
+              </p>
+            </div>
+            <a class="btn btn-accent" href="#">Продукція</a>
+          </div>
+          <div class="hero__image">
+            <img src="images/maestro-pro-image.png" alt="товар Maestro Pro">
+          </div>
+          <div class="hero__promo">
+            <div class="hero__subtitle">Відцентровий витяжний вентилятор</div>
+            <h2 class="hero__title title">Meltem V-II 30-N</h2>
+            <a class="btn" href="#">Детальніше</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal-popup modal-popup-position">
+    <div class="modal-popup__inner">
+      <button class="modal-popup__cross-menu cross-menu"></button>
+      <h2 class="modal-popup__title popup-title">Залишайте заявку</h2>
+      <div class="modal-popup__text popup-text">
+        <p>Ми зв’яжемося з вами найближчим часом.</p>
+      </div>
+      <form class="modal-popup__form" action="#" onsubmit="validateForm(event)">
+        <div class="modal-popup__input">
+          <label for="name"></label>
+          <input id="name" type="text" placeholder="Ваше ім’я*" required oninput="clearInvalid()">
+        </div>
+        <div class="modal-popup__input modal-popup__input--tell">
+          <label for="tell"></label>
+          <input class="modal-popup__tell" id="tell" type="tel" placeholder="+380-00-000-00-00*" required>
+        </div>
+        <button class="modal-popup__btn btn btn-accent" type="submit">Відправить</button>
+      </form>
+      <div class="modal-popup__disclaimer">
+        <p>Натискаючи кнопку “Надіслати”, ви погоджуєтесь з
+          <a class="modal-popup__link" href="#">Правилами обробки персональних даних</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="thank-block thank-block-position">
+    <div class="thank-block__inner">
+      <h2 class="thank-block__title popup-title">Дякуємо за заявку!</h2>
+      <div class="thank-block__text popup-text popup-text">
+        <p>Ваші дані успішно надіслані!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container position">
+    <div class="cookie-pop">
+      <div class="cookie-pop__inner">
+        <div class="cookie-pop__text">
+          <p>Використовуючи цей сайт, ви даєте згоду на роботу з файлами <a class="cookie-pop__link"
+              href="#">сookies</a>.</p>
+        </div>
+        <a class="cookie-pop__agree btn" href="#">Згоден</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
